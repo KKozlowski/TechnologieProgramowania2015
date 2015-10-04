@@ -1,0 +1,26 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Name="EditorWindow"
+        xmlns:local="clr-namespace:Applic" x:Class="Applic.BorrowEditor"
+        Title="BorrowEditor" Height="281" Width="392" ResizeMode="NoResize">
+    <Window.DataContext>
+        <local:ViewModelBorrowEditor/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="36*"/>
+            <ColumnDefinition Width="37*"/>
+        </Grid.ColumnDefinitions>
+        <DatePicker HorizontalAlignment="Left" Margin="10,154,0,0" VerticalAlignment="Top" SelectedDateFormat="Long" FirstDayOfWeek="Monday" SelectedDate="{Binding Date}" Width="169"/>
+        <ComboBox HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="364" Grid.ColumnSpan="2" ItemsSource="{Binding ReadersObjects}" SelectedItem="{Binding ChosenReader}"/>
+        <ComboBox HorizontalAlignment="Left" Margin="10,98,0,0" VerticalAlignment="Top" Width="364" Grid.ColumnSpan="2" ItemsSource="{Binding BooksObjects}" SelectedItem="{Binding ChosenBook}"/>
+        <Label Content="Czytelnik&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,9,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Książka&#xA;" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Data&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" Width="120" Height="29"/>
+        <Button Content="{Binding ButtonLabel, Mode=OneWay}" HorizontalAlignment="Left" Margin="10,201,0,0" VerticalAlignment="Top" Width="364" Grid.ColumnSpan="2" Height="37" 
+                Command="{Binding ButtonClicked}"
+                CommandParameter="{Binding ElementName=EditorWindow}"/>
+
+    </Grid>
+</Window>

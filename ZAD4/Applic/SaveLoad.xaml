@@ -1,0 +1,22 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Name="EditorWindow"
+        xmlns:local="clr-namespace:Applic" x:Class="Applic.SaveLoad"
+        Title="SaveLoad" Height="113" Width="455" ResizeMode="NoResize">
+    <Window.DataContext>
+        <local:ViewModelSaveLoad/>
+    </Window.DataContext>
+    <Grid>
+
+        <ComboBox HorizontalAlignment="Left" Margin="302,11,0,0" VerticalAlignment="Top" Width="135" Height="22" ItemsSource="{Binding SerializatorNames}" SelectedIndex="{Binding ChosenIndex}"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="212" Height="20" 
+                Command="{Binding SaveClicked}"
+                CommandParameter="{Binding ElementName=EditorWindow}"/>
+        <Button Content="Load" HorizontalAlignment="Left" Margin="227,42,0,0" VerticalAlignment="Top" Width="210" Height="20" 
+                Command="{Binding LoadClicked}"
+                CommandParameter="{Binding ElementName=EditorWindow}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding Path}" VerticalAlignment="Top" Width="287" RenderTransformOrigin="0.8,0.652"/>
+
+    </Grid>
+</Window>

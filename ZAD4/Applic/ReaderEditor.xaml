@@ -1,0 +1,21 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        x:Name="EditorWindow"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Applic" x:Class="Applic.ReaderEditor"
+        Title="ReaderEditor" Height="221" Width="300" ResizeMode="NoResize">
+    <Window.DataContext>
+        <local:ViewModelReaderEditor/>
+    </Window.DataContext>
+    <Grid Height="164" VerticalAlignment="Top">
+        
+        <TextBox x:Name="NameBox" Height="23" Margin="10,31,10,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top"/>
+        <TextBox x:Name="SurnameBox" Height="23" Margin="10,93,10,0" TextWrapping="Wrap" Text="{Binding Surname}" VerticalAlignment="Top"/>
+        <Label x:Name="NameLabel" Content="Imię" Margin="10,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="272"/>
+        <Label x:Name="SurnameLabel" Content="Nazwisko&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="272" Height="29"/>
+        <Button Content="{Binding ButtonLabel, Mode=OneWay}" Height="28" Margin="10,136,10,0" VerticalAlignment="Top" 
+                Command="{Binding ButtonClicked}"
+                CommandParameter="{Binding ElementName=EditorWindow}"/>
+
+    </Grid>
+</Window>

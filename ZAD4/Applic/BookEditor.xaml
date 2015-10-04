@@ -1,0 +1,26 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Name="EditorWindow"
+        xmlns:local="clr-namespace:Applic" x:Class="Applic.BookEditor"
+        Title="BookEditor" Height="300" Width="434" ResizeMode="NoResize">
+    <Window.DataContext>
+        <local:ViewModelBookEditor/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="203*"/>
+            <ColumnDefinition Width="223*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox HorizontalAlignment="Left" Height="27" Margin="10,40,0,0" TextWrapping="Wrap" Text="{Binding Title}" VerticalAlignment="Top" Width="406" Grid.ColumnSpan="2" />
+        <Label Content="Tytuł&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Width="93" Height="32"/>
+        <TextBox HorizontalAlignment="Left" Height="27" Margin="10,99,0,0" TextWrapping="Wrap" Text="{Binding Author}" VerticalAlignment="Top" Width="406" Grid.ColumnSpan="2"/>
+        <Label Content="Autor&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" Width="93" Height="32"/>
+        <TextBox HorizontalAlignment="Left" Height="27" Margin="10,158,0,0" TextWrapping="Wrap" Text="{Binding IssueYear}" VerticalAlignment="Top" Width="406" Grid.ColumnSpan="2"/>
+        <Label Content="Rok wydania&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Width="150" Height="32"/>
+        <Button Content="{Binding ButtonLabel, Mode=OneWay}" HorizontalAlignment="Left" Margin="10,201,0,0" VerticalAlignment="Top" Width="406" Height="58" Grid.ColumnSpan="2" 
+                Command="{Binding ButtonClicked}" 
+                CommandParameter="{Binding ElementName=EditorWindow}"/>
+
+    </Grid>
+</Window>
